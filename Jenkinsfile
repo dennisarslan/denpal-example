@@ -8,7 +8,7 @@
   }
   environment {
     DOCKER_CREDS = credentials('amazeeiojenkins-dockerhub-password')
-    COMPOSE_PROJECT_NAME = 'drupal-testsite'
+    COMPOSE_PROJECT_NAME = 'denpal'
   }
   stages {
     stage('Docker login') {
