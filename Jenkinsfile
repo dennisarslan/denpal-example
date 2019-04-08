@@ -21,7 +21,8 @@
         sh '''
         docker-compose config -q
         docker-compose down
-        docker-compose up -d --build "$@"
+        echo docker-compose up -d --build "$@"
+        docker-compose up -d "$@"
         '''
       }
     }
@@ -36,7 +37,7 @@
       steps {
         sh '''
         docker-compose exec -T cli drush status
-        docker-compose exec -T cli drush site-install config_installer
+        docker-compose exec -T cli drush site-install config_installer -y
         docker-compose exec -T cli curl http://nginx:8080 -v
         docker-compose down
         '''
