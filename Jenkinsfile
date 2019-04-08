@@ -32,21 +32,15 @@
         """
       }
     }
-    try {
     stage('Verification') {
       steps {
           sh '''
           docker-compose exec -T cli drush status
-          docker-compose exec -T cli drush site-install config_installer -y
+          docker-compose exec -T cli drush site-install config_installer install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL -y
           docker-compose exec -T cli curl http://nginx:8080 -v
           docker-compose down
           '''
         }
-      }
-    }
-    catch(all) {
-      script {
-        currentBuild.setDescription("Installation failed.")
       }
     }
   }
