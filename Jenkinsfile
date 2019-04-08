@@ -12,7 +12,6 @@
       steps {
         sh """
         docker login --username amazeeiojenkins --password $DOCKER_CREDS
-        docker images | head
         """
       }
     }
@@ -36,6 +35,7 @@
       steps {
         sh '''
         docker-compose exec -T cli drush status
+        docker-compose exec -T cli drush site-install config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
         docker-compose exec -T cli drush site-install config_installer install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL -y
         docker-compose exec -T cli curl http://nginx:8080 -v
         docker-compose down
