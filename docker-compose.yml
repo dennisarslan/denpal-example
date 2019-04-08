@@ -50,7 +50,7 @@ services:
       dockerfile: Dockerfile.nginx
       args:
         CLI_IMAGE: *lagoon-project # Inject the name of the cli image
-    image: drupaltest_nginx
+    # image: drupaltest_nginx
     labels:
       lagoon.type: nginx-php-persistent
       lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
@@ -71,7 +71,7 @@ services:
       dockerfile: Dockerfile.php
       args:
         CLI_IMAGE: *lagoon-project
-    image: drupaltest_php
+    # image: drupaltest_php
     labels:
       lagoon.type: nginx-php-persistent
       lagoon.name: nginx # we want this service be part of the nginx pod in Lagoon
