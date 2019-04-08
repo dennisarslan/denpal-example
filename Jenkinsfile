@@ -32,9 +32,9 @@
         """
       }
     }
+    try {
     stage('Verification') {
       steps {
-        try {
           sh '''
           docker-compose exec -T cli drush status
           docker-compose exec -T cli drush site-install config_installer -y
@@ -42,11 +42,11 @@
           docker-compose down
           '''
         }
-        catch(all) {
-          script {
-            currentBuild.setDescription("Installation failed.")
-          }
-        }
+      }
+    }
+    catch(all) {
+      script {
+        currentBuild.setDescription("Installation failed.")
       }
     }
   }
