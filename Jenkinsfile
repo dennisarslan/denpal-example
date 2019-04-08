@@ -37,7 +37,11 @@
       steps {
         sh '''
         docker-compose exec -T cli drush status
+        echo "1"
+        echo $?
         docker-compose exec -T cli curl http://nginx:8080 -v
+        echo "2"
+        echo $?
         docker-compose down
         '''
       }
