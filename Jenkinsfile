@@ -36,6 +36,7 @@
       steps {
         sh '''
         docker-compose exec -T cli drush status
+        docker-compose exec -T cli drush site-install
         docker-compose exec -T cli curl http://nginx:8080 -v
         docker-compose down
         '''
