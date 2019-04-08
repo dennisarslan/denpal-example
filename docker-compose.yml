@@ -2,13 +2,14 @@ version: '2.3'
 
 x-lagoon-project:
   # Lagoon project name (leave `&lagoon-project` when you edit this)
-  &lagoon-project drupal-example
+  &lagoon-project denpal
+  &cli-image denpal
 
 x-volumes:
   &default-volumes
     # Define all volumes you would like to have real-time mounted into the docker containers
     volumes:
-      - .:/app:delegated
+      - .:/test:delegated
 
 x-environment:
   &default-environment
@@ -31,7 +32,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.cli
-    image: *lagoon-project # this image will be reused as `CLI_IMAGE` in subsequent Docker builds
+    # image: *lagoon-project # this image will be reused as `CLI_IMAGE` in subsequent Docker builds
+    image: drupaltest
     labels:
       # Lagoon Labels
       lagoon.type: cli-persistent
@@ -48,6 +50,7 @@ services:
       dockerfile: Dockerfile.nginx
       args:
         CLI_IMAGE: *lagoon-project # Inject the name of the cli image
+    image: drupaltest_nginx
     labels:
       lagoon.type: nginx-php-persistent
       lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
@@ -68,6 +71,7 @@ services:
       dockerfile: Dockerfile.php
       args:
         CLI_IMAGE: *lagoon-project
+    image: drupaltest_php
     labels:
       lagoon.type: nginx-php-persistent
       lagoon.name: nginx # we want this service be part of the nginx pod in Lagoon
