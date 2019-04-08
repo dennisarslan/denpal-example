@@ -28,7 +28,7 @@
     stage('Waiting') {
       steps {
         sh """
-        sleep 10s
+        sleep 5s
         """
       }
     }
@@ -36,13 +36,7 @@
       steps {
         sh '''
         docker-compose exec -T cli drush status
-        echo "1"
-        echo $?
         docker-compose exec -T cli curl http://nginx:8080 -v
-        docker-compose logs
-        docker ps | head
-        echo "2"
-        echo $?
         docker-compose down
         '''
       }
