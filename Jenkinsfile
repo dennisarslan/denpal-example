@@ -12,6 +12,7 @@
       steps {
         sh """
         docker login --username amazeeiojenkins --password $DOCKER_CREDS
+        docker images | head
         """
       }
     }
