@@ -21,8 +21,7 @@
         sh '''
         docker-compose config -q
         docker-compose down
-        echo docker-compose up -d --build "$@"
-        docker-compose up -d "$@"
+        docker-compose up -d --build "$@"
         '''
       }
     }
@@ -35,13 +34,18 @@
     }
     stage('Verification') {
       steps {
-        catchError {
+        try {
           sh '''
           docker-compose exec -T cli drush status
           docker-compose exec -T cli drush site-install config_installer -y
           docker-compose exec -T cli curl http://nginx:8080 -v
           docker-compose down
           '''
+        }
+        catch(all) {
+          script {
+            currentBuild.setDescription("Installation failed.")
+          }
         }
       }
     }
