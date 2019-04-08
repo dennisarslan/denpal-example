@@ -11,6 +11,8 @@
     stage('Docker login') {
       steps {
         sh """
+        COMPOSE_PROJECT_NAME=drupaltest3 docker-compose down
+        COMPOSE_PROJECT_NAME=drupaltest2 docker-compose down
         docker login --username amazeeiojenkins --password $DOCKER_CREDS
         """
       }
@@ -27,7 +29,7 @@
     stage('Waiting') {
       steps {
         sh """
-        sleep 5s
+        sleep 10s
         """
       }
     }
@@ -36,6 +38,7 @@
         sh '''
         docker-compose exec -T cli drush status
         docker-compose exec -T cli curl http://nginx:8080 -v
+        docker-compose down
         '''
       }
     }
