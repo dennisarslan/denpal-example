@@ -40,6 +40,8 @@
         echo "1"
         echo $?
         docker-compose exec -T cli curl http://nginx:8080 -v
+        docker-compose logs
+        docker ps | head
         echo "2"
         echo $?
         docker-compose down
