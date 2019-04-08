@@ -5,7 +5,7 @@
   }
   environment {
     DOCKER_CREDS = credentials('amazeeiojenkins-dockerhub-password')
-    COMPOSE_PROJECT_NAME = "drupaltest$(BUILD_ID)"
+    COMPOSE_PROJECT_NAME = "drupaltest-${BUILD_ID}"
   }
   stages {
     stage('Docker login') {
