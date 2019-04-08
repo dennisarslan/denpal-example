@@ -49,7 +49,8 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
       args:
-        CLI_IMAGE: *lagoon-project # Inject the name of the cli image
+        CLI_IMAGE: denpal_nginx
+        # CLI_IMAGE: *lagoon-project # Inject the name of the cli image
     # image: drupaltest_nginx
     labels:
       lagoon.type: nginx-php-persistent
@@ -70,7 +71,8 @@ services:
       context: .
       dockerfile: Dockerfile.php
       args:
-        CLI_IMAGE: *lagoon-project
+        CLI_IMAGE: denpal_php
+        # CLI_IMAGE: *lagoon-project
     # image: drupaltest_php
     labels:
       lagoon.type: nginx-php-persistent
