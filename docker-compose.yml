@@ -49,7 +49,7 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
       args:
-        CLI_IMAGE: denpal_nginx
+        CLI_IMAGE: amazeeiodevelopment/denpal_nginx
         # CLI_IMAGE: *lagoon-project # Inject the name of the cli image
     # image: drupaltest_nginx
     labels:
@@ -71,7 +71,7 @@ services:
       context: .
       dockerfile: Dockerfile.php
       args:
-        CLI_IMAGE: denpal_php
+        CLI_IMAGE: amazeeiodevelopment/denpal_php
         # CLI_IMAGE: *lagoon-project
     # image: drupaltest_php
     labels:
