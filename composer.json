@@ -1,0 +1,21 @@
+{
+    "name": "dennisarslan/denpal-example",
+    "description": "Example of Denpal",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Dennis Arslan (dennis@arslan.co.uk)",
+            "role": "DevOps Engineer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "drutiny/drutiny": "2.3.*@dev"
+    }
+}

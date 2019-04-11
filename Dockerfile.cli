@@ -1,6 +1,9 @@
 #FROM amazeeio/php:7.2-cli-drupal
 FROM amazeeiodevelopment/denpal
 
+COPY composer.json /app/
+RUN composer install --no-dev
+
 COPY . /app
 
 # Define where the Drupal Root is located
