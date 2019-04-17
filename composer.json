@@ -22,7 +22,7 @@
         ]
     },
     "require": {
-	"dennis00/denpal": "dev-master@dev",
+	"dennis00/denpal-distro": "dev-master@dev",
         "drutiny/drutiny": "2.3.*@dev"
     }
 }
