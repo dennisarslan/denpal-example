@@ -3,6 +3,7 @@
     "description": "Example of Denpal",
     "type": "project",
     "license": "GPL-2.0+",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Dennis Arslan (dennis@arslan.co.uk)",
@@ -15,7 +16,13 @@
             "url": "https://packages.drupal.org/8"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
     "require": {
+	"dennis00/denpal": "dev-master@dev",
         "drutiny/drutiny": "2.3.*@dev"
     }
 }
