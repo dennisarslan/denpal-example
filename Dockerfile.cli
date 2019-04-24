@@ -11,7 +11,7 @@ FROM amazeeiodevelopment/denpal
 
 COPY composer.json /app/
 COPY scripts /app/scripts
-RUN composer install --no-dev
+RUN composer install --dev
 COPY . /app
 
 # Define where the Drupal Root is located
