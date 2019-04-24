@@ -36,7 +36,7 @@
         sh '''
         docker-compose exec -T cli drush status
         docker-compose exec -T cli ls -al /app/vendor
-        docker-compose exec -T cli ./vendor/bin/drutiny ./vendor/bin/drutiny policy:list
+        docker-compose exec -T cli ./vendor/bin/drutiny policy:list
         docker-compose exec -T cli ./vendor/bin/drutiny policy:audit Drupal-8:PageCacheExpiry @drupalvm.dev
         echo docker-compose exec -T cli drush -y site-install config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
         docker-compose exec -T cli /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush -y site-install config_installer install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL
