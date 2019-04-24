@@ -19,7 +19,7 @@
       steps {
         sh '''
         docker-compose config -q
-        docker-compose down
+        echo docker-compose down
         docker-compose up -d --build "$@"
         '''
       }
