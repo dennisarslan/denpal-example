@@ -10,6 +10,7 @@ FROM amazeeiodevelopment/denpal
 #RUN /app/extra-packages.sh
 
 COPY composer.json /app/
+RUN rm -f /app/composer.lock
 COPY scripts /app/scripts
 RUN composer install --dev
 COPY . /app
