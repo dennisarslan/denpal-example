@@ -3,11 +3,16 @@ FROM amazeeiodevelopment/denpal
 
 #COPY composer2.json /app/
 #RUN COMPOSER=composer2.json php composer.phar install
-#RUN COMPOSER=composer2.json composer install 
+#RUN COMPOSER=composer2.json composer install
 #RUN ./extra-packages.sh
 
+#COPY . /app
+#RUN /app/extra-packages.sh
+
+COPY composer.json /app/
+COPY scripts /app/scripts
+RUN composer install --no-dev
 COPY . /app
-RUN /app/extra-packages.sh
 
 # Define where the Drupal Root is located
 ENV WEBROOT=web
