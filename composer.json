@@ -23,6 +23,7 @@
     "require": {
 	    "dennis00/denpal-distro": "dev-master@dev",
       "drutiny/drutiny": "2.3.*@dev",
+      "drutiny/plugin-drupal-8": "2.2@dev",
       "sensiolabs/security-checker": "dev-master@dev"
     },
     "minimum-stability": "dev",

@@ -39,7 +39,7 @@
         docker-compose exec -T cli ./vendor/bin/drutiny policy:list
         docker-compose exec -T cli ./vendor/sensiolabs/security-checker/security-checker security:check /app/composer.lock
 
-        tests=(Test:Pass Drupal:LintTheme Database:Size)
+        tests=(Test:Pass Drupal:LintTheme Database:Size Drupal-8:PageCacheExpiry)
 
         for i in "${tests[@]}"; do
           docker-compose exec -T cli ./vendor/bin/drutiny policy:audit "$i" @self
