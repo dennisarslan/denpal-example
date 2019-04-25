@@ -22,7 +22,8 @@
     },
     "require": {
 	    "dennis00/denpal-distro": "dev-master@dev",
-      "drutiny/drutiny": "2.3.*@dev"
+      "drutiny/drutiny": "2.3.*@dev",
+      "sensiolabs/security-checker": "v5.0.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
